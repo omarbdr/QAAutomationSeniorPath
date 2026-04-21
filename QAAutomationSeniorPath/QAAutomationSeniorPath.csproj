@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Class1.cs" />
+    <Compile Remove="Integridad_y_Resilencia_de_Datos\AmountTransfers.cs" />
+    <Compile Remove="Integridad_y_Resilencia_de_Datos\SafeParsing.cs" />
+    <Compile Remove="Manipulacion_de_Strings_y_Reportes_Dinamicos\DataCleaning.cs" />
+    <Compile Remove="Manipulacion_de_Strings_y_Reportes_Dinamicos\StringProcessor.cs" />
+    <Compile Remove="PaymentRecord.cs" />
+    <Compile Remove="Procesamiento_de_Datos_y_Validaciones_de_Campo\EmailFormatValidator.cs" />
+    <Compile Remove="Procesamiento_de_Datos_y_Validaciones_de_Campo\NamesFormatValidator.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Class1.cs" />
+    <None Include="Integridad_y_Resilencia_de_Datos\AmountTransfers.cs" />
+    <None Include="Integridad_y_Resilencia_de_Datos\SafeParsing.cs" />
+    <None Include="Manipulacion_de_Strings_y_Reportes_Dinamicos\DataCleaning.cs" />
+    <None Include="Manipulacion_de_Strings_y_Reportes_Dinamicos\StringProcessor.cs" />
+    <None Include="PaymentRecord.cs" />
+    <None Include="Procesamiento_de_Datos_y_Validaciones_de_Campo\EmailFormatValidator.cs" />
+    <None Include="Procesamiento_de_Datos_y_Validaciones_de_Campo\NamesFormatValidator.cs" />
+  </ItemGroup>
+
+</Project>
