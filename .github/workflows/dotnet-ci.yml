@@ -16,15 +16,12 @@ jobs:
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: 8.0.x
-    
-    - name: List files (Debugging)
-      run: ls -R
         
     - name: Restore dependencies
-      run: dotnet restore
+      run: dotnet restore "OmarBeltrandelRioMendez.sln"
       
     - name: Build
-      run: dotnet build --configuration Release --no-restore
+      run: dotnet build "OmarBeltrandelRioMendez.sln" --configuration Release --no-restore
       
     - name: Test
-      run: dotnet test --configuration Release --no-build --verbosity normal
+      run: dotnet test "OmarBeltrandelRioMendez.sln" --configuration Release --no-build --verbosity normal
