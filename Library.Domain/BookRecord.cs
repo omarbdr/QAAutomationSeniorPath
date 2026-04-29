@@ -9,6 +9,8 @@
         public string Autor { get; set; }
         public bool esValido { get; set; }
         public string error { get; set; }
+        public int Id { get; set; }
+        public bool OnLoan { get; set; }
 
     }
 }
