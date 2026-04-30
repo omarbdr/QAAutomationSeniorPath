@@ -11,14 +11,14 @@ namespace Library.ConsoleApp
             // Por ahora, imagina que 'miBaseDeDatos' ya existe.
             ILibraryDbContext miBaseDeDatos = null; // Mock o DB real
 
-            var servicio = new BibliotecaService(miBaseDeDatos);
+            var servicio = new LibraryService(miBaseDeDatos);
 
             Console.WriteLine("--- Sistema de Préstamos ---");
 
             try
             {
                 // Simulamos que el usuario elige el libro 1 y el usuario 5
-                servicio.PrestarLibro(1, 5);
+                servicio.LendBook(1, 5);
                 Console.WriteLine("¡Préstamo exitoso!");
             }
             catch (Exception ex)

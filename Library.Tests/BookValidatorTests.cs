@@ -27,8 +27,8 @@ namespace Library.Tests
             var result = _validator.ValidateLine(badLine, _mappedRecords);
 
             // Assert (Verificamos que el "Quality Gate" lo detenga)
-            Assert.That(result.esValido, Is.False);
-            Assert.That(result.error, Is.EqualTo("Linea Incompleta o mal formada."));
+            Assert.That(result.IsValid, Is.False);
+            Assert.That(result.Error, Is.EqualTo("Linea Incompleta o mal formada."));
         }
         [Test]
         public void ValidateLine_ShouldReturnError_WhenISBNIsDuplicated()
@@ -45,8 +45,8 @@ namespace Library.Tests
             var result = _validator.ValidateLine(line2, _mappedRecords);
 
             // Assert
-            Assert.That(result.esValido, Is.False);
-            Assert.That(result.error, Does.Contain("IS DUPLICATED"));
+            Assert.That(result.IsValid, Is.False);
+            Assert.That(result.Error, Does.Contain("IS DUPLICATED"));
         }
     }
 }

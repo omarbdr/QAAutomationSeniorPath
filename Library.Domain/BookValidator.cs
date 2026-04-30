@@ -11,8 +11,8 @@ namespace Library.Domain
         public BookRecord ValidateLine(string item, HashSet<string> mappedRecords)
         {
             BookRecord book = new BookRecord();
-            book.esValido = true;
-            book.error = "";
+            book.IsValid = true;
+            book.Error = "";
 
             try
             {
@@ -21,8 +21,8 @@ namespace Library.Domain
                 // Validación de estructura
                 if (parts.Length < 5)
                 {
-                    book.esValido = false;
-                    book.error = "Linea Incompleta o mal formada.";
+                    book.IsValid = false;
+                    book.Error = "Linea Incompleta o mal formada.";
                 }
                 else
                 {
@@ -31,17 +31,17 @@ namespace Library.Domain
                     // Validación de formato ISBN
                     if (string.IsNullOrEmpty(book.ISBN) || !book.ISBN.StartsWith("ISBN"))
                     {
-                        book.esValido = false;
-                        book.error += "El ISBN no es válido. Debe comenzar con 'ISBN' y no puede estar vacío. ";
+                        book.IsValid = false;
+                        book.Error += "El ISBN no es válido. Debe comenzar con 'ISBN' y no puede estar vacío. ";
                     }
 
                     // Validación de Duplicados
                     if (mappedRecords.Contains(book.ISBN))
                     {
-                        book.esValido = false;
-                        book.error += $"EL {book.ISBN} IS DUPLICATED. ";
+                        book.IsValid = false;
+                        book.Error += $"EL {book.ISBN} IS DUPLICATED. ";
                     }
-                    else if (book.esValido) // Solo agregamos al set si el ISBN al menos es válido
+                    else if (book.IsValid) // Solo agregamos al set si el ISBN al menos es válido
                     {
                         mappedRecords.Add(book.ISBN);
                     }
@@ -49,29 +49,29 @@ namespace Library.Domain
                     // Validación de Título
                     if (string.IsNullOrEmpty(parts[1]))
                     {
-                        book.esValido = false;
-                        book.error += "El Título no puede estar vacío. ";
+                        book.IsValid = false;
+                        book.Error += "El Título no puede estar vacío. ";
                     }
 
                     // Validación de Fecha
                     if (!int.TryParse(parts[2], out int releasingDate) || releasingDate < 1450 || releasingDate > DateTime.Now.Year)
                     {
-                        book.esValido = false;
-                        book.error += "La fecha es invalida. ";
+                        book.IsValid = false;
+                        book.Error += "La fecha es invalida. ";
                     }
 
                     // Validación de Rating
                     if (!decimal.TryParse(parts[3], NumberStyles.Any, CultureInfo.InvariantCulture, out decimal rating) || rating < 0 || rating > 5)
                     {
-                        book.esValido = false;
-                        book.error += "La calificación debe ser un número decimal entre 0.0 y 5.0. ";
+                        book.IsValid = false;
+                        book.Error += "La calificación debe ser un número decimal entre 0.0 y 5.0. ";
                     }
                 }
             }
             catch (Exception ex)
             {
-                book.esValido = false;
-                book.error = $"Error crítico al procesar el registro: {ex.Message}";
+                book.IsValid = false;
+                book.Error = $"Error crítico al procesar el registro: {ex.Message}";
             }
 
             return book;

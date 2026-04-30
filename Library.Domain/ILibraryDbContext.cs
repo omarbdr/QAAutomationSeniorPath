@@ -5,8 +5,8 @@ namespace Library.Domain
 {
     public interface ILibraryDbContext
     {
-        DbSet<BookRecord> Libros { get; set; }
-        DbSet<Usuario> Usuarios { get; set; }
+        DbSet<BookRecord> Books { get; set; }
+        DbSet<UserRecord> Users { get; set; }
 
         void BeginTransaction();
         void SaveChanges();
